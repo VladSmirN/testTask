@@ -1,60 +1,74 @@
 <!DOCTYPE html>
-<!-- saved from url=(0036)http://gsoft-test.jsin.ru/test1.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-        <title>Тестовое задание</title>
+    <title>Тестовое задание</title>
 		
+    <script src="https://vk.com/js/api/openapi.js?154" type="text/javascript"></script>
 		
-		<script src="https://vk.com/js/api/openapi.js?154" type="text/javascript"></script>
-<script type="text/javascript">
-  VK.init({
-    apiId: 6604866
-  });
-</script>
+    <script type="text/javascript">
+	
+      VK.init({
+        apiId: 6604866
+      });
+	  
+    </script>		
 		
-		
-    </head>
-    <body>
-      <style>
+  </head>
+  
+  <body>
+  
+  <style>
             
-      </style>       
-       <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+  </style> 
+
+  <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
  
+  <div>ваши друзья</div>
   
   <ul id="frends">
-  <li>ваши друзья</li>
-</ul>
-        <script type="text/javascript">
-
-VK.Auth.login(function(response) {
-  if (response.session) {
   
-  console.log(response);
+  </ul>
   
-  VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name','crop_photo'], order: 'name',v:"5.73"}, function(r){
-    console.log(r);
-   if(r.response){
-    r = r.response.items;
-    for(var i = 0; i < Math.min(r.length,5); ++i){
-	 $("#frends").append("<li class='item'>"+r[i].first_name+" "+r[i].last_name+" "+r[i].id+"</li>");
+    <script type="text/javascript">
+	
+      var loginInVK = function (){
+	  
+		  VK.Auth.login(function(response) {
+		
+			if (response.session) {
+		  
+			  console.log(response);
+	  
+			  VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name','crop_photo'], order: 'name',v:"5.73"}, function(r){
+			
+				console.log(r);
+			
+				if(r.response) {
+			
+				  r = r.response.items;
+			  
+				  for( var i = 0 ; i < Math.min(r.length,5) ; ++i ){
+			 
+					$("#frends").append("<li class='item'>"+r[i].first_name+" "+r[i].last_name+" "+r[i].id+"</li>");
+			 
+				  }
+			  
+			   }else alert("Не удалось получить список ваших друзей(((");
+			 
+			  })
+		   
+			}else alert("Не удалось получить доступ");
+		 
+		  },2);
+		  
     }
-   }else alert("Не удалось получить список ваших друзей");
-  })
+	loginInVK();
+	//document.cookie
+	
+  </script>
   
-  
-  
-  
-  
-    /*  */alert("Пользователь успешно авторизовался");
-    if (response.settings) {
-      /*  */alert("Выбранные настройки доступа пользователя, если они были запрошены");
-    }
-  } else {
-    /*  */alert("Пользователь нажал кнопку Отмена в окне авторизации");
-  }
-},2);
-//$.ready(vk.init);
-        </script>
-    
-
-</body></html>
+  </body>
+</html>
