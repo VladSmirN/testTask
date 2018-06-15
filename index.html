@@ -30,7 +30,7 @@ VK.Auth.login(function(response) {
   VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name'], order: 'name',v:"5.73"}, function(r){
     console.log(r);
    if(r.response){
-    r = r.response;
+    r = r.response.items;
     var ol = $('#frends').add('ol');
     for(var i = 0; i < Math.min(r.length,5); ++i){
      var li = ol.add('li').html(r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')')
