@@ -26,12 +26,19 @@
 
   <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
 <script src="./carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <a class="waves-effect waves-light btn" id="btn">button</a>
+
+  <div id="about">
   <div>ваши друзья</div>
   
   <ul id="frends">
   
   </ul>
-  
+  </div>
     <script type="text/javascript">
 	
       var loginInVK = function (){
@@ -65,15 +72,51 @@
 		  },2);
 		  
     }
+	
+	var createCookie = function(){
+	
+	  $.cookie('authorization', '1', {
+	  
+      expires: 5,
+      path: '/',
+      secure: true
+	  
+      });	
+	}
+	
+	var checkCookie = function(){
+	
+	  if($.cookie('authorization') == '1')
+	    return true;
+	  else
+	    return false;
+	}
+	
 	//loginInVK();
-$.cookie('cookie_name', 'cookie_value', {
-    expires: 5,
-    path: '/',
-    secure: true
-});
-	var cookie_date = new Date ( 2019, 01, 15 );
-document.cookie = "username=Вася;expires=" + cookie_date.toGMTString();
-                  
+
+	$( document ).ready(function() {
+	
+      if(checkCookie()){
+	  
+	    loginInVK();
+	    $('#btn').hide();
+		$('#about').show();
+		
+	  }else{
+	    $('#about').hide();
+		$('#btn').show();
+	  }
+	 
+    });
+	
+	$('#btn').click({
+	
+	  createCookie();
+	  loginInVK();
+	  $('#btn').hide();
+      $('#about').show();
+	
+	})
 	
   </script>
   
