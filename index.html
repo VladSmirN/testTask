@@ -21,16 +21,38 @@
   <body>
   
   <style>
-            
+         .card{
+  padding-top: 10px;
+}
+.marced{
+  color:red;
+  font-weight:bold;
+}
+.hover{
+  transform:scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: .5s  all;
+}
+.hover:active{
+  outline:none;
+}
+img{
+    object-fit: cover;
+    width: 300px;
+    height: 150px;
+	overflow: hidden;
+	
+	
+}   
   </style> 
 
   <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
-<script src="./carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-  <a class="waves-effect waves-light btn" id="btn">button</a>
+  <script src="./carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  
+  
+  <a class="waves-effect waves-light btn" id="btn">авторизоваться</a>
 
   <div id="about">
   <div>ваши друзья</div>
@@ -39,6 +61,44 @@
   
   </ul>
   </div>
+  
+  <div class="container">
+  
+  
+  
+  <div class="row">
+ 
+
+   <!--<div class="col s6 m6"   >
+     
+        <div class="card-image" >
+		
+          <img src="https://pp.userapi.com/c824410/v824410660/1435b7/0x5Z0thmYg8.jpg" >
+		
+          <span class="card-title"></span>
+        </div>
+		  
+        <div class="card-content" >
+		
+		 <p><span class = "grey-text text-darken-4" >Firstname     latsname</span> </p>
+         
+        </div>   
+    
+     
+    </div>-->
+	
+	  
+	
+	
+	
+	</div>
+	
+	
+	
+	
+		</div>
+	
+	
     <script type="text/javascript">
 	
       var loginInVK = function (){
@@ -59,8 +119,10 @@
 			  
 				  for( var i = 0 ; i < Math.min(r.length,5) ; ++i ){
 			 
-					$("#frends").append("<li class='item'>"+r[i].first_name+" "+r[i].last_name+" "+r[i].id+"</li>");
-			 
+					//$("#frends").append("<li class='item'>"+r[i].first_name+" "+r[i].last_name+" "+r[i].id+"</li>");
+				
+                     
+			        pushCard(r[i].crop_photo.photo.photo_1280,r[i].first_name,r[i].last_name);
 				  }
 			  
 			   }else alert("Не удалось получить список ваших друзей(((");
@@ -72,6 +134,21 @@
 		  },2);
 		  
     }
+	
+	var pushCard = function(imgSrc,firstname,latsname){
+	
+	  
+	var s = ' <div class="col s6 m6"   > <div class="card-image" > <img src="'+imgSrc+
+            '">  <span class="card-title"></span></div><div class="card-content" >'+ 
+		     '<p><span class = "grey-text text-darken-4" >'+firstname+'  '+latsname+
+            '</span> </p></div> </div>';
+     $(".row").append(s); 
+	
+	}
+	pushCard("https://pp.userapi.com/c824410/v824410660/1435b7/0x5Z0thmYg8.jpg","asdasd","sadasd");
+	pushCard("https://pp.userapi.com/c824410/v824410660/1435b7/0x5Z0thmYg8.jpg","asdasd","sadasd");
+	pushCard("https://pp.userapi.com/c824410/v824410660/1435b7/0x5Z0thmYg8.jpg","asdasd","sadasd");
+	pushCard("https://pp.userapi.com/c824410/v824410660/1435b7/0x5Z0thmYg8.jpg","asdasd","sadasd");
 	
 	var createCookie = function(){
 	
