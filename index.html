@@ -26,7 +26,7 @@
 VK.Auth.login(function(response) {
   if (response.session) {
   
-  console.log(response.session.user);
+  console.log(response);
     /*  */alert("Пользователь успешно авторизовался");
     if (response.settings) {
       /*  */alert("Выбранные настройки доступа пользователя, если они были запрошены");
