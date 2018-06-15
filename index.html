@@ -27,7 +27,7 @@ VK.Auth.login(function(response) {
   
   console.log(response);
   
-  VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name'], order: 'name'}, function(r){
+  VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name'], order: 'name',v:"5.73"}, function(r){
    if(r.response){
    console.log(r);
    }else alert("Не удалось получить список ваших друзей");
