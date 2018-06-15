@@ -55,7 +55,7 @@ img{
   <a class="waves-effect waves-light btn" id="btn">авторизоваться</a>
 
   <div id="about">
-  <div>ваши друзья</div>
+
   
   <ul id="frends">
   
@@ -64,18 +64,17 @@ img{
   
   <div class="container">
   
-   <div class="row" id="you">
- 
-   </div>
-  
-  <div class="row" id="frends">
+   <h5 class="you"></h5>
+   
+   <h5>ваши друзья :</h5>
+  <div class="row">
  
 
    <!--<div class="col s6 m6"   >
-     
+     center-align
         <div class="card-image" >
 		
-          <img src="https://pp.userapi.com/c824410/v824410660/1435b7/0x5Z0thmYg8.jpg" >
+          <img src="" >
 		
           <span class="card-title"></span>
         </div>
@@ -96,15 +95,21 @@ img{
 	
 	
     <script type="text/javascript">
-	
+
       var loginInVK = function (){
-	  
+	      
+		  
+		  
 		  VK.Auth.login(function(response) {
 		
 			if (response.session) {
-		  
+		      
 			  console.log(response);
-	  
+			  
+			  $(".you").text("Ваше имя :"+response.session.user.first_name+" "+
+			                              response.session.user.last_name );
+			  
+	     
 			  VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name','crop_photo'], order: 'name',v:"5.73"}, function(r){
 			
 				console.log(r);
@@ -115,13 +120,12 @@ img{
 			  
 				  for( var i = 0 ; i < Math.min(r.length,5) ; ++i ){
 			 
-					
+					//$("#frends").append("<li class='item'>"+r[i].first_name+" "+r[i].last_name+" "+r[i].id+"</li>");
 				
                     if(r[i].crop_photo) 
-			        pushCard(r[i].crop_photo.photo.photo_807,r[i].first_name,r[i].last_name,"#frends");
+			        pushCard(r[i].crop_photo.photo.photo_807,r[i].first_name,r[i].last_name);
 					else
-					pushCard("https://vk.com/images/camera_100.png?ava=1",r[i].first_name,r[i].last_name,"#frends");
-					
+					pushCard("https://vk.com/images/camera_100.png?ava=1",r[i].first_name,r[i].last_name);
 				  }
 			  
 			   }else alert("Не удалось получить список ваших друзей(((");
@@ -130,7 +134,7 @@ img{
 		   
 			}else alert("Не удалось получить доступ");
 		 
-		  },6);
+		  },2);
 		  
     }
 	
@@ -141,7 +145,7 @@ img{
             '">  <span class="card-title"></span></div><div class="card-content" >'+ 
 		     '<p><span class = "grey-text text-darken-4" >'+firstname+'  '+latsname+
             '</span> </p></div> </div>';
-     $(toAppend).append(s); 
+     $(".row").append(s); 
 	
 	}
 
