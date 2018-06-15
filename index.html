@@ -121,8 +121,9 @@ img{
 			 
 					//$("#frends").append("<li class='item'>"+r[i].first_name+" "+r[i].last_name+" "+r[i].id+"</li>");
 				
-                     
-			        pushCard(r[i].crop_photo.photo.photo_1280,r[i].first_name,r[i].last_name);
+                    if(r[i].crop_photo.photo.photo_807) 
+			        pushCard(r[i].crop_photo.photo.photo_807,r[i].first_name,r[i].last_name);
+					
 				  }
 			  
 			   }else alert("Не удалось получить список ваших друзей(((");
@@ -145,10 +146,7 @@ img{
      $(".row").append(s); 
 	
 	}
-	pushCard("https://pp.userapi.com/c824410/v824410660/1435b7/0x5Z0thmYg8.jpg","asdasd","sadasd");
-	pushCard("https://pp.userapi.com/c824410/v824410660/1435b7/0x5Z0thmYg8.jpg","asdasd","sadasd");
-	pushCard("https://pp.userapi.com/c824410/v824410660/1435b7/0x5Z0thmYg8.jpg","asdasd","sadasd");
-	pushCard("https://pp.userapi.com/c824410/v824410660/1435b7/0x5Z0thmYg8.jpg","asdasd","sadasd");
+
 	
 	var createCookie = function(){
 	
