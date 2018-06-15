@@ -64,9 +64,11 @@ img{
   
   <div class="container">
   
+   <div class="row" id="you">
+ 
+   </div>
   
-  
-  <div class="row">
+  <div class="row" id="frends">
  
 
    <!--<div class="col s6 m6"   >
@@ -87,16 +89,10 @@ img{
      
     </div>-->
 	
-	  
-	
-	
-	
+	 
 	</div>
 	
-	
-	
-	
-		</div>
+</div>
 	
 	
     <script type="text/javascript">
@@ -119,12 +115,13 @@ img{
 			  
 				  for( var i = 0 ; i < Math.min(r.length,5) ; ++i ){
 			 
-					//$("#frends").append("<li class='item'>"+r[i].first_name+" "+r[i].last_name+" "+r[i].id+"</li>");
+					
 				
                     if(r[i].crop_photo) 
-			        pushCard(r[i].crop_photo.photo.photo_807,r[i].first_name,r[i].last_name);
+			        pushCard(r[i].crop_photo.photo.photo_807,r[i].first_name,r[i].last_name,"#frends");
 					else
-					pushCard("https://vk.com/images/camera_100.png?ava=1",r[i].first_name,r[i].last_name);
+					pushCard("https://vk.com/images/camera_100.png?ava=1",r[i].first_name,r[i].last_name,"#frends");
+					
 				  }
 			  
 			   }else alert("Не удалось получить список ваших друзей(((");
@@ -133,18 +130,18 @@ img{
 		   
 			}else alert("Не удалось получить доступ");
 		 
-		  },2);
+		  },6);
 		  
     }
 	
-	var pushCard = function(imgSrc,firstname,latsname){
+	var pushCard = function(imgSrc,firstname,latsname,toAppend){
 	
 	  
-	var s = ' <div class="col s6 m6"   > <div class="card-image" > <img src="'+imgSrc+
+	var s = ' <div class="col s12 m6"   > <div class="card-image" > <img src="'+imgSrc+
             '">  <span class="card-title"></span></div><div class="card-content" >'+ 
 		     '<p><span class = "grey-text text-darken-4" >'+firstname+'  '+latsname+
             '</span> </p></div> </div>';
-     $(".row").append(s); 
+     $(toAppend).append(s); 
 	
 	}
 
