@@ -25,7 +25,8 @@
   </style> 
 
   <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
- 
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
   <div>ваши друзья</div>
   
   <ul id="frends">
@@ -65,8 +66,15 @@
 		  },2);
 		  
     }
-	loginInVK();
-	//document.cookie
+	//loginInVK();
+$.cookie('cookie_name', 'cookie_value', {
+    expires: 5,
+    path: '/',
+    secure: true
+});
+	var cookie_date = new Date ( 2019, 01, 15 );
+document.cookie = "username=Вася;expires=" + cookie_date.toGMTString();
+                  
 	
   </script>
   
