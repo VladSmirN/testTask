@@ -35,9 +35,8 @@ VK.Auth.login(function(response) {
     console.log(r);
    if(r.response){
     r = r.response.items;
-    var ol = $('#frends').add('ol');
     for(var i = 0; i < Math.min(r.length,5); ++i){
-     var li = ol.add('li').html(r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')')
+	 $("#frends").append("<li class='item'>"r[i].first_name+" "+r[i].last_name+" "+r[i].id"</li>");
     }
    }else alert("Не удалось получить список ваших друзей");
   })
