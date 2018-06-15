@@ -28,7 +28,7 @@ VK.Auth.login(function(response) {
   console.log(response);
   
   VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name'], order: 'name',v:"5.73"}, function(r){
-   if(r.response){
+ 
    if(r.response){
     r = r.response;
     var ol = $('#clientApi').add('ol');
