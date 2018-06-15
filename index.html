@@ -29,11 +29,7 @@ VK.Auth.login(function(response) {
   
   VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name'], order: 'name'}, function(r){
    if(r.response){
-    r = r.response;
-    var ol = $('#clientApi').add('ol');
-    for(var i = 0; i < r.length; ++i){
-     var li = ol.add('li').html(r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')')
-    }
+   console.log(r);
    }else alert("Не удалось получить список ваших друзей");
   })
   
