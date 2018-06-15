@@ -19,7 +19,7 @@
             
       </style>       
        <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
-  <section id="serverApi">Серверный API</section>
+  <section id="frends">ваши друзья</section>
         <script type="text/javascript">
 
 VK.Auth.login(function(response) {
@@ -31,7 +31,7 @@ VK.Auth.login(function(response) {
  
    if(r.response){
     r = r.response;
-    var ol = $('#clientApi').add('ol');
+    var ol = $('#frends').add('ol');
     for(var i = 0; i < Math.min(r.length,5); ++i){
      var li = ol.add('li').html(r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')')
     }
