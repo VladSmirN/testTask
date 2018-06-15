@@ -3,6 +3,16 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <title>Тестовое задание</title>
+		
+		
+		<script src="https://vk.com/js/api/openapi.js?154" type="text/javascript"></script>
+<script type="text/javascript">
+  VK.init({
+    apiId: 6604866
+  });
+</script>
+		
+		
     </head>
     <body>
       <style>
@@ -10,49 +20,20 @@
       </style>
         123
        <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
-	 
-  <section id="clientApi">Клиентский API</section>
-        <script>
-		var YOUR_APP_PERMISSIONS =2,
-		    YOUR_APP_ID =6604866;
-		
-		var vk = {
- data: {},
- api: "//vk.com/js/api/openapi.js",
- appID: YOUR_APP_ID,
- appPermissions: YOUR_APP_PERMISSIONS,
- init: function(){
-  $.js(vk.api);
-  window.vkAsyncInit = function(){
-   VK.init({apiId: vk.appID});
-   load();
-  }
 
-  function load(){
-   VK.Auth.login(authInfo, vk.appPermissions);
+        <script type="text/javascript">
 
-   function authInfo(response){
-    if(response.session){ // Авторизация успешна
-     vk.data.user = response.session.user;
-     vk.getFriends();
-    }else alert("Авторизоваться не удалось!");
-   }
-  }
- },
- getFriends: function(){
-  VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name'], order: 'name'}, function(r){
-   if(r.response){
-    r = r.response;
-    var ol = $('#clientApi').add('ol');
-    for(var i = 0; i < r.length; ++i){
-     var li = ol.add('li').html(r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')')
+VK.Auth.login(function(response) {
+  if (response.session) {
+    /*  */alert("Пользователь успешно авторизовался");
+    if (response.settings) {
+      /*  */alert("Выбранные настройки доступа пользователя, если они были запрошены");
     }
-   }else alert("Не удалось получить список ваших друзей");
-  })
- }
-}
-
-$.ready(vk.init);
+  } else {
+    /*  */alert("Пользователь нажал кнопку Отмена в окне авторизации");
+  }
+});
+//$.ready(vk.init);
         </script>
     
 
