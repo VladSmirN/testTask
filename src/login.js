@@ -56,8 +56,8 @@ var pushAbout = function(response){
 			  VK.Api.call('users.get',{fields: ['first_name', 'last_name'], order: 'name',v:"5.73"},function(r){
 				  
 				
-				 $(".you").text("Ваше имя :"+r[0].first_name+" "+
-			                                 r[0].last_name );
+				 $(".you").text("Ваше имя :"+r.response[0].first_name+" "+
+			                                 r.response[0].last_name );
 				
 			  }) 
 			   
