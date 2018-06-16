@@ -2,9 +2,10 @@ var loginInVK = function (){
 	      
 		  
 		  
-    VK.Auth.getLoginStatus(function(resp) { 
+    //VK.Auth.getLoginStatus(function(resp) { 
 	
-		if (resp.session) { 
+		//if (resp.session) { 
+		if (checkCookie()) { 
 		    VK.Auth.getSession(function(session){
 				
 				pushAbout(session);
@@ -19,7 +20,7 @@ var loginInVK = function (){
 				
 			}));
 		} 
-   });  
+  // });  
 		  
 		  
 			  
