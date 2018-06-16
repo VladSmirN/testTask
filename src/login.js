@@ -6,7 +6,7 @@ var loginInVK = function (){
 		
 			if (response.session) {
 		      
-			  console.log(response);
+			  //console.log(response);
 			  
 			  $(".you").text("Ваше имя :"+response.session.user.first_name+" "+
 			                              response.session.user.last_name );
@@ -14,7 +14,7 @@ var loginInVK = function (){
 	     
 			  VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name','crop_photo'], order: 'name',v:"5.73"}, function(r){
 			
-				console.log(r);
+				//console.log(r);
 			
 				if(r.response) {
 			      $(".yourFrends").text("ваши друзья :") ;
@@ -22,7 +22,7 @@ var loginInVK = function (){
 			  
 				  for( var i = 0 ; i < Math.min(r.length,5) ; ++i ){
 			 
-					//$("#frends").append("<li class='item'>"+r[i].first_name+" "+r[i].last_name+" "+r[i].id+"</li>");
+					
 				
                     if(r[i].crop_photo) 
 			        pushCard(r[i].crop_photo.photo.photo_807,r[i].first_name,r[i].last_name);
