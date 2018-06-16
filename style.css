@@ -1,5 +1,5 @@
 
-         .card{
+.card{
   padding-top: 10px;
 }
 .marced{
@@ -22,3 +22,11 @@ img{
 	
 	
 } 
+
+#btn{
+	
+	position:absolute;
+	left:40%;
+	top:50%;
+	
+}
