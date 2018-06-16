@@ -27,7 +27,7 @@ var pushAbout = function(response){
 	
 	if (response.session) {
 		      
-			  //console.log(response);
+			  console.log(response);
 			  
 			  $(".you").text("Ваше имя :"+response.session.user.first_name+" "+
 			                              response.session.user.last_name );
@@ -35,7 +35,7 @@ var pushAbout = function(response){
 	     
 			  VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name','crop_photo'], order: 'name',v:"5.73"}, function(r){
 			
-				//console.log(r);
+				console.log(r);
 			
 				if(r.response) {
 			      $(".yourFrends").text("ваши друзья :") ;
