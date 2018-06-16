@@ -5,8 +5,11 @@ var loginInVK = function (){
     VK.Auth.getLoginStatus(function(resp) { 
 	
 		if (resp.session) { 
-		
-			pushAbout(resp);
+		    VK.Auth.getSession(function(session){
+				
+				pushAbout(session);
+			})
+			
 			
 		} else { 
 			
