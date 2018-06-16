@@ -7,12 +7,12 @@ var createCookie = function(){
       secure: true
 	  
       });	
-	}
+}
 	
-	var checkCookie = function(){
+var checkCookie = function(){
 	
 	  if($.cookie('authorization') == '1')
 	    return true;
 	  else
 	    return false;
-	}
+}

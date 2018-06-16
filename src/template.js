@@ -7,4 +7,4 @@ var pushCard = function(imgSrc,firstname,latsname,toAppend){
             '</span> </p></div> </div>';
      $(".row").append(s); 
 	
-	}
+}

@@ -39,4 +39,4 @@ var loginInVK = function (){
 		 
 		  },2);
 		  
-    }
+}
