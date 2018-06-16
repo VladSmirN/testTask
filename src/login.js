@@ -2,9 +2,30 @@ var loginInVK = function (){
 	      
 		  
 		  
-		  VK.Auth.login(function(response) {
+    VK.Auth.getLoginStatus(function(resp) { 
+	
+		if (resp.session) { 
 		
-			if (response.session) {
+			pushAbout(resp);
+			
+		} else { 
+			
+			VK.Auth.login(pushAbout(function(response){
+				
+				pushAbout(response);
+				
+			}));
+		} 
+   });  
+		  
+		  
+			  
+}
+
+
+var pushAbout = function(response){
+	
+	if (response.session) {
 		      
 			  //console.log(response);
 			  
@@ -36,7 +57,5 @@ var loginInVK = function (){
 			  })
 		   
 			}else alert("Не удалось получить доступ");
-		 
-		  },2);
-		  
+	
 }
