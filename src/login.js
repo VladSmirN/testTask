@@ -2,25 +2,17 @@ var loginInVK = function (){
 	      
 		  
 		  
-    //VK.Auth.getLoginStatus(function(resp) { 
-	
-		//if (resp.session) { 
-		if (checkCookie()) { 
-		    VK.Auth.getSession(function(session){
-				
-				pushAbout(session);
-			})
+VK.Auth.getLoginStatus(function(resp) { 
+	if (resp.session) { 
+		pushAbout(resp);
+	} else { 
+		
+ 		VK.Auth.login(pushAbout(function(response){
 			
-			
-		} else { 
-			
-			VK.Auth.login(pushAbout(function(response){
-				
-				pushAbout(response);
-				
-			}));
-		} 
-  // });  
+			pushAbout(response);
+		}));
+	} 
+});  
 		  
 		  
 			  
@@ -33,8 +25,8 @@ var pushAbout = function(response){
 		      
 			  console.log(response);
 			  
-			  $(".you").text("Ваше имя :"+response.session.user.first_name+" "+
-			                              response.session.user.last_name );
+			  /*$(".you").text("Ваше имя :"+response.session.user.first_name+" "+
+			                              response.session.user.last_name );*/
 			  
 	     
 			  VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name','crop_photo'], order: 'name',v:"5.73"}, function(r){
