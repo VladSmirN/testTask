@@ -10,7 +10,7 @@ VK.Auth.getLoginStatus(function(resp) {
  		VK.Auth.login(pushAbout(function(response){
 			
 			pushAbout(response);
-		}));
+		}),2);
 	} 
 });  
 		  
