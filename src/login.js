@@ -51,7 +51,17 @@ var pushAbout = function(response){
 			   }else alert("Не удалось получить список ваших друзей(((");
 			 
 			  })
-		   
+		       
+			  VK.Api.call('users.get',{fields: ['first_name', 'last_name'], order: 'name',v:"5.73"},function(r){
+				  
+				console.log(r);
+				$(".you").text("Ваше имя :"+r.first_name+" "+
+			                                r.last_name );
+				
+			  }) 
+			   
+			   
+			   
 			}else alert("Не удалось получить доступ");
 	
 }
