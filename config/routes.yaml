@@ -1,0 +1,12 @@
+index:
+  path: /
+  controller: App\Controller\ListController::index
+list:
+  path: /list
+  controller: App\Controller\ListController::index
+add:
+  path: /add
+  controller: App\Controller\AddController::index
+update:
+  path: /update/{id}
+  controller: App\Controller\UpdateController::index
