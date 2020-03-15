@@ -23,5 +23,6 @@ if (isset($_POST['order_id'])) {
 
 function sendJson($array)
 {
-    print(json_decode($array));
+    //json_decode => json_encode
+    print(json_encode($array));
 }
