@@ -11,8 +11,7 @@ if (isset($_POST['order_id'])) {
             'order_id'     => $order['order_id'],
             'order_status' => $order['status'],
         ]);
-    }
-
+    }else // добавил else
     sendJson(
         [
             'status'  => 'fail',
