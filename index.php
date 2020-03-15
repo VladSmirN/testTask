@@ -45,3 +45,11 @@ class rbc{
         }
     }
 }
+
+
+$today = new rbc(); 
+$yesterday = new rbc(strtotime("-1 day"));
+
+echo "{$today -> curs(840)} => {$yesterday -> curs(840)} ";
+
+ 
