@@ -49,7 +49,7 @@ final class Item{
     public function __set($property, $value)
     {   
         $type = gettype($value);
-        if(empty($value)) return ;
+        if(isset($value)) return ;
         
         switch ($property){
 
