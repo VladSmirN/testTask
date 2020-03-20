@@ -1,5 +1,5 @@
 <?php
-class Item{
+final class Item{
 
     private int $id;
     private string $name;
