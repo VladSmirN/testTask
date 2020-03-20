@@ -34,7 +34,12 @@ final class Item{
     */
     public function __get($property)
     {
+       if (!property_exists($this, $property)) {
+         throw new Exception('Property not exist.');
+       }
+            
         return $this->$property;
+        
     }
 
     /**
