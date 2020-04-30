@@ -8,8 +8,8 @@ services:
       - '127.0.0.1:3306:3306'
     environment:  
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=forum 
-      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=task 
+      - MYSQL_PASSWORD=root 
       - MYSQL_USER=root
     volumes:
       - ./db:/var/lib/mysql

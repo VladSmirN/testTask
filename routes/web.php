@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('reviews')->group(function () {
+    Route::get('show', 'ReviewsController@show')->name('reviews.show'); 
+    Route::post('store', 'ReviewsController@store')->name('reviews.store');
+});
