@@ -15,4 +15,15 @@ class ReviewsController extends Controller
 
         return view('show');
     }
+
+    public function store(Request $request)
+    {   
+        
+        $this->validate($request, [
+            'email' => 'required',
+            'name' => 'required',
+            'comment' => 'required',
+        ]);
+        return 1;
+    }
 }
