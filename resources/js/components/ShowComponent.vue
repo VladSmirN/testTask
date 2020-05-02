@@ -13,8 +13,8 @@
     </v-card>
     <v-card max-width="600" style="margin:10px">
       <v-card-text>
-        <v-text-field v-model="email" label="Имя" required></v-text-field>
-        <v-text-field v-model="name" label="E-mail" required></v-text-field>
+        <v-text-field v-model="name" label="Имя" required></v-text-field>
+        <v-text-field v-model="email" label="E-mail" required></v-text-field>
         <v-textarea
         solo
         v-model="comment"
@@ -33,6 +33,7 @@
   import axios from 'axios'
   export default {
     mounted() {
+      this.getReviews()
       console.log('Component mounted.')
     },
     data: () => ({
@@ -42,13 +43,29 @@
       reviews: [{ NAME: "Vlad Vlad", EMAIL: "email@email.ru", COMMENT: "all ok" }]
     }),
     methods: {
+
+      async getReviews(){
+        let res = await axios.get('http://127.0.0.1:8000/reviews')
+        this.reviews = res.data
+        console.log(res.data)
+      },
       async send(){
-        let  ans  = await axios.post('http://127.0.0.1:8000/reviews/store',{
-          email:"1",
-          name:"sasafsfa1",
-          comment:"1"
-        })
-        console.log(ans);
+        try {
+          let  ans  = await axios.post('http://127.0.0.1:8000/reviews/store',{
+          email:this.email,
+          name:this.name,
+          comment:this.comment
+          })
+          this.reviews.push({NAME:this.name,EMAIL:this.email,COMMENT:this.comment})
+          this.email = ""
+          this.name = ""
+          this.comment = ""
+          alert("Ваш отзыв успешно добавлен");
+        } catch (error) {
+          alert("Данные не прошли валидацию.");   
+        }
+        
+        
       }
     }
   }

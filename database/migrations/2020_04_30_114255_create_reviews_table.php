@@ -18,6 +18,7 @@ class CreateReviewsTable extends Migration
             $table->longText('COMMENT');
             $table->string('EMAIL');
             $table->text('NAME');
+            $table->timestamps();
         });
     }
 
