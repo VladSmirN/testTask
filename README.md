@@ -27,7 +27,7 @@ php artisan serve
 
 Код в https://github.com/VladSmirN/testTask/blob/vsem-edu/app/Http/Controllers/ReviewsController.php
 
-      https://github.com/VladSmirN/testTask/blob/vsem-edu/resources/js/components/ShowComponent.vue  
+   https://github.com/VladSmirN/testTask/blob/vsem-edu/resources/js/components/ShowComponent.vue  
       
       
 Задание 2 
