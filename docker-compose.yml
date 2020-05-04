@@ -1,11 +1,31 @@
 version: "3"
 services:
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/Nginx.Dockerfile
+    ports:
+      - '127.0.0.1:8000:80'
+    volumes:
+      - ./:/var/www/task
+    links:
+      - fpm
+  fpm:
+    build:
+      context: .
+      dockerfile: docker/Fpm.Dockerfile
+    volumes:
+      - ./:/var/www/task
+    links:
+      - mysql
+
   mysql:
     image: mysql:latest
     command: [--default-authentication-plugin=mysql_native_password]
     restart: always
-    ports:
-      - '127.0.0.1:3306:3306'
+    #ports:
+    #  - '3306:3306'
     environment:  
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=task 
@@ -13,3 +33,9 @@ services:
       - MYSQL_USER=root
     volumes:
       - ./db:/var/lib/mysql
+  composer:
+    restart: 'no'
+    image: composer:latest 
+    command: install 
+    volumes:
+      - .:/app
