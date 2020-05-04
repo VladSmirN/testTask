@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('card', function () {
+    return view('card');
 });
 
 Route::prefix('reviews')->group(function () {
     Route::get('show', 'ReviewsController@show')->name('reviews.show'); 
     Route::post('store', 'ReviewsController@store')->name('reviews.store');
     Route::get('/', 'ReviewsController@getReviews')->name('reviews.getReviews');
-    
 });
+
