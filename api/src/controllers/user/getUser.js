@@ -17,7 +17,15 @@ let getUser = [
   async function (req, res, next) {
     let user = await userModel.get(req.body.email)
     if(user.length == 0) res.status(401).json({ message: "no such user found" });
-    res.send(user[0]);
+
+    let prop  = ["_id","email","avatar","firstName","lastName","about"]
+    let publicUser ={}
+    for(key in prop){
+      let item  = prop[key]
+      if(user[0][item])
+      publicUser[item] = user[0][item]
+    }
+    res.send(publicUser);
   },
   
 ];
