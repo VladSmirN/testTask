@@ -1,6 +1,6 @@
 var userModel = require("../../models/user/index.js");
 var multer = require("multer");
-var upload = multer({ dest: "./api/uploads/" });
+var upload = multer({ dest: "./uploads/" });
 const { check, validationResult } = require("express-validator");
 
 let create = [
