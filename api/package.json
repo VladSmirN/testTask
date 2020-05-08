@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./src/server.js"
+    "start": "node ./src/server.js",
+    "dev": "nodemon --watch src  src/server.js"
   },
   "dependencies": {
     "connect-mongo": "^3.2.0",
