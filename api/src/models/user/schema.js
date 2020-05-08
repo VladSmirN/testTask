@@ -5,6 +5,7 @@ let schema = new Schema({
   firstName: String,
   lastName: String,
   avatar: String,
+  about: String,
   password: {
     type: String,
     requsired: true,

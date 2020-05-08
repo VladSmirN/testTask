@@ -33,6 +33,7 @@ let create = [
     if (req.body.firstName) data.firstName = req.body.firstName;
     if (req.body.age) data.age = req.body.age;
     if (req.body.lastName) data.lastName = req.body.lastName;
+    if (req.body.about) data.about = req.body.about;
     userModel.create(data);
     res.send("OK");
   }
